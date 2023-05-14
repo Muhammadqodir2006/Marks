@@ -28,7 +28,7 @@
             android:inputType="textEmailAddress"
             android:layout_marginTop="42dp"
             android:maxLines="1"
-            android:id="@+id/log_in_email_edit_text"
+            android:id="@+id/log_in_login_edit_text"
             android:layout_marginHorizontal="16dp"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_shape"
