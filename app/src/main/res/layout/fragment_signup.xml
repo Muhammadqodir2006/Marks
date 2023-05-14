@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screen.SignupFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="42dp"
+            android:text="Sign up"
+            android:textSize="42sp"
+            android:textStyle="bold" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/Widget.Material3.TextInputEditText.FilledBox"
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="42dp"
+            android:maxLines="1"
+            android:id="@+id/signup_email_edit_text"
+            android:layout_marginHorizontal="16dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_shape"
+            android:hint="Login" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/Widget.Material3.TextInputEditText.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_marginTop="24dp"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:id="@+id/signup_password_edit_text"
+            android:layout_marginHorizontal="16dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_shape"
+            android:hint="Password" />
+
+        <RadioGroup
+            android:id="@+id/signup_rg"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:checkedButton="@id/signup_student_rb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/signup_student_rb"
+                android:text="Student"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:id="@+id/singup_teacher_rb"
+                android:text="Teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/Widget.Material3.TextInputEditText.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_marginTop="24dp"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:id="@+id/signup_secondfield_edit_text"
+            android:layout_marginHorizontal="16dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_shape"
+            android:hint="Sinf" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signup_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginVertical="42dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="sing up"
+            android:textStyle="bold"
+            app:cornerRadius="12dp" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Already have an account ?"
+                android:layout_width="wrap_content"
+                android:textColor="@color/text_color2"
+                android:layout_marginVertical="16dp"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/signup_login_text"
+                android:layout_marginStart="16dp"
+                android:text="Sign in"
+                android:layout_width="wrap_content"
+                android:textColor="@color/primary"
+                android:textStyle="bold"
+                android:layout_marginVertical="16dp"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</ScrollView>
