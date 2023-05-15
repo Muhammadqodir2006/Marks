@@ -2,9 +2,12 @@ package uz.itschool.marks.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "teachers")
+@Entity(tableName = "teachers", foreignKeys = [
+    ForeignKey(Subject::class, ["id"], ["subject_id"])
+])
 class Teacher (
     @PrimaryKey(autoGenerate = true) var id:Int = 0,
     var login:String,

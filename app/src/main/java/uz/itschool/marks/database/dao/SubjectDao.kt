@@ -3,7 +3,7 @@ package uz.itschool.marks.database.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import javax.security.auth.Subject
+import uz.itschool.marks.database.entity.Subject
 
 @Dao
 interface SubjectDao {

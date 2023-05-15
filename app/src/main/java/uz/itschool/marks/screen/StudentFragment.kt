@@ -5,31 +5,48 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.room.ForeignKey
 import uz.itschool.marks.R
-private const val ARG_PARAM1 = "param1"
-class StudentFragment : Fragment() {
-    private var param1: Int? = null
+import uz.itschool.marks.database.AppDataBase
+import uz.itschool.marks.database.entity.Student
+import uz.itschool.marks.database.entity.Subject
+import uz.itschool.marks.databinding.FragmentStudentBinding
+import uz.itschool.marks.util.ShPHelper
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getInt(ARG_PARAM1)
-        }
-    }
+class StudentFragment : Fragment() {
+    val appDataBase = AppDataBase.getInstance(requireContext())
+    val shPHelper = ShPHelper.getInstance(requireContext())
+    val id = shPHelper.getUser()!![0].toInt()
+    lateinit var student : Student
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_student, container, false)
-    }
+    ): View {
+        val binding = FragmentStudentBinding.inflate(inflater, container, false)
 
-    companion object {
-        fun newInstance(param1: Int) =
-            TeacherFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_PARAM1, param1)
-                }
+        val groups = appDataBase.getGroupDao().getGroup()
+        val teacherGroupSubject = appDataBase.getTeacherGroupSubjectDao().getTeacherGroupSubject()
+        val students = appDataBase.getStudentDao().getStudents()
+
+        /////////////////////////////////////////////////////////////////////////////////////////
+        //     GET SUBJECTS OF A STUDENT
+        for (i in students){
+            if (i.id == id) {
+                student = i
+                break
             }
+        }
+
+        val mySubjects = mutableListOf<Subject>()
+        val intLIst = mutableListOf<Int>()
+        for (i in appDataBase.getTeacherGroupSubjectDao().getTeacherGroupSubject()){
+            if (student.group_id == i.groupId) intLIst.add(student.group_id)
+        }
+        for (i in appDataBase.getSubjectDao().getSubjects()){
+            if (intLIst.contains(i.id)) mySubjects.add(i)
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+        return binding.root
     }
 }
