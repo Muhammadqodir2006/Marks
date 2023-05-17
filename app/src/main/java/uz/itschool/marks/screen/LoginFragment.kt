@@ -30,10 +30,8 @@ class LoginFragment : Fragment() {
             for (i in students){
                 if (i.login == login){
                     if (i.password == password){
-                        shPHelper.setUser(i.id.toString(), "1")
+                        shPHelper.setUser(i.id.toString(), "2")
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                    }else{
-                        Toast.makeText(requireContext(), "Noto'g'ri parol", Toast.LENGTH_LONG).show()
                         return@setOnClickListener
                     }
                 }
@@ -42,14 +40,13 @@ class LoginFragment : Fragment() {
             for (i in teachers){
                 if (i.login == login){
                     if (i.password == password){
-                        shPHelper.setUser(i.id.toString(), "1")
+                        shPHelper.setUser(i.id.toString(), "5")
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                    }else{
-                        Toast.makeText(requireContext(), "Noto'g'ri parol", Toast.LENGTH_LONG).show()
                         return@setOnClickListener
                     }
                 }
             }
+            Toast.makeText(requireContext(), "Noto'gri login yoki parol", Toast.LENGTH_LONG).show()
         }
 
         binding.logInSignUpText.setOnClickListener{

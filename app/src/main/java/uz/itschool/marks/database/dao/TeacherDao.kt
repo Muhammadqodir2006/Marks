@@ -12,4 +12,6 @@ interface TeacherDao {
 
     @Insert
     fun addTeacher(teacher: Teacher)
+    @Query("select * from teachers where id = :id")
+    fun getTeacher(id:Int):Teacher
 }

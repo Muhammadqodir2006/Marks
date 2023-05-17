@@ -18,5 +18,7 @@ interface StudentDao {
 
     @Insert
     fun addStudent(student: Student)
+    @Query("select * from students where id = :id")
+    fun getStudent(id : Int):Student
 
 }
