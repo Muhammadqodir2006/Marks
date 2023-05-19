@@ -22,7 +22,6 @@ class LoginFragment : Fragment() {
         val appDataBase = AppDataBase.getInstance(requireContext())
 
         binding.logInButton.setOnClickListener {
-            // TODO: Check and go home
             val shPHelper = ShPHelper.getInstance(requireContext())
             val login = binding.logInLoginEditText.text.toString()
             val password = binding.logInPasswordEditText.text.toString()
@@ -30,7 +29,7 @@ class LoginFragment : Fragment() {
             for (i in students){
                 if (i.login == login){
                     if (i.password == password){
-                        shPHelper.setUser(i.id.toString(), "2")
+                        shPHelper.setUser(i.id.toString(), "0")
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                         return@setOnClickListener
                     }
@@ -40,7 +39,7 @@ class LoginFragment : Fragment() {
             for (i in teachers){
                 if (i.login == login){
                     if (i.password == password){
-                        shPHelper.setUser(i.id.toString(), "5")
+                        shPHelper.setUser(i.id.toString(), "1")
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                         return@setOnClickListener
                     }

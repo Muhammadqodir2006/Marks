@@ -17,10 +17,10 @@ class HomeFragment : Fragment() {
     ): View {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
         val a = ShPHelper.getInstance(requireContext()).getUser()!!
-        if (a[1] == "2") {
+        if (a[1] == "0") {
             childFragmentManager.beginTransaction()
                 .add(R.id.home_container, StudentFragment.newInstance(a[0].toInt())).commit()
-        } else if (a[1] == "5") {
+        } else if (a[1] == "1") {
             childFragmentManager.beginTransaction()
                 .add(R.id.home_container, TeacherFragment.newInstance(a[0].toInt())).commit()
         }

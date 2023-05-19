@@ -1,5 +1,6 @@
 package uz.itschool.marks.screen
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,15 +22,18 @@ class TeacherFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val appDataBase = AppDataBase.getInstance(requireContext())
+        val binding = FragmentTeacherBinding.inflate(inflater, container, false)
         val teacher = appDataBase.getTeacherDao().getTeacher(param1!!)
-        val binding =  FragmentTeacherBinding.inflate(inflater, container, false)
 
-        binding.teacherName.text = teacher.lastName
+
+        binding.teacherName.text = teacher.firstName + " " + teacher.lastName
+
 
         return binding.root
     }

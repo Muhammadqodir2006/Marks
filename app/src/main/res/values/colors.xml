@@ -17,5 +17,10 @@
     <color name="text_color3">#D7D7D7</color>
 
 
+    <color name="green">#00C853</color>
+    <color name="red">#FF3D00</color>
+    <color name="orange">#FFD600</color>
+
+
 
 </resources>
