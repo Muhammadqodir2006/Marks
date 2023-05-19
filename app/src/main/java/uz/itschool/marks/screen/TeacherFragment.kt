@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import uz.itschool.marks.R
 import uz.itschool.marks.database.AppDataBase
 import uz.itschool.marks.databinding.FragmentTeacherBinding
+import uz.itschool.marks.screen.teacher.GroupsFragment
 
 private const val ARG_PARAM1 = "param1"
 class TeacherFragment : Fragment() {
@@ -31,9 +32,9 @@ class TeacherFragment : Fragment() {
         val binding = FragmentTeacherBinding.inflate(inflater, container, false)
         val teacher = appDataBase.getTeacherDao().getTeacher(param1!!)
 
+        binding.teacherName.text = "${teacher.firstName} ${teacher.lastName}"
 
-        binding.teacherName.text = teacher.firstName + " " + teacher.lastName
-
+        childFragmentManager.beginTransaction().add(R.id.teacherr_nav_host, GroupsFragment()).commit()
 
         return binding.root
     }

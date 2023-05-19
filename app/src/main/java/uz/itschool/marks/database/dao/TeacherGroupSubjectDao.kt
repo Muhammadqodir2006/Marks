@@ -9,10 +9,10 @@ import uz.itschool.marks.database.entity.TeacherGroupSubject
 @Dao
 interface TeacherGroupSubjectDao {
     @Query("select * from teacher_group_subject")
-    fun getTeacherGroupSubject():List<TeacherGroupSubject>
+    fun getTeacherGroupSubjects():List<TeacherGroupSubject>
 
     @Query("select * from teacher_group_subject where teacher_id = :teacherId")
-    fun getTeacherGroupSubject(teacherId:Int):List<TeacherGroupSubject>
+    fun getTeacherGroupSubjects(teacherId:Int):List<TeacherGroupSubject>
 
     @Insert
     fun addTeacherGroupSubject(teacherGroupSubject: TeacherGroupSubject)

@@ -23,7 +23,7 @@ class StudentFragment : Fragment() {
         val binding = FragmentStudentBinding.inflate(inflater, container, false)
         val appDataBase = AppDataBase.getInstance(requireContext())
         val student:Student = appDataBase.getStudentDao().getStudent(param1!!)
-        val teacherGroupSubject = appDataBase.getTeacherGroupSubjectDao().getTeacherGroupSubject()
+        val teacherGroupSubject = appDataBase.getTeacherGroupSubjectDao().getTeacherGroupSubjects()
 
         /////////////////////////////////////////////////////////////////////////////////////////
         //     GET SUBJECTS OF A STUDENT
