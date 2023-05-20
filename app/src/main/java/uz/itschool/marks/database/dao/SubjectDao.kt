@@ -9,6 +9,8 @@ import uz.itschool.marks.database.entity.Subject
 interface SubjectDao {
     @Query("select * from subjects")
     fun getSubjects():List<Subject>
+    @Query("select * from subjects where id=:subjectId")
+    fun getSubject(subjectId:Int):Subject
 
     @Insert
     fun addSubject(subject: Subject)

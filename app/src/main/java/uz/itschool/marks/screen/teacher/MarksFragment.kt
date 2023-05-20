@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import uz.itschool.marks.R
 import uz.itschool.marks.adapter.MarksAdapterTeacher
@@ -45,8 +46,10 @@ class MarksFragment : Fragment() {
         val binding = FragmentMarksBinding.inflate(inflater, container, false)
 
         binding.teacherMarksRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.teacherMarksRecycler.adapter = MarksAdapterTeacher(requireContext(), appDataBase, param1!!, teacher.subjectId)
-
+        binding.teacherMarksRecycler.adapter = MarksAdapterTeacher(requireContext(), appDataBase, param1!!, param2!!, teacher.subjectId)
+        requireActivity().onBackPressedDispatcher.addCallback(this){
+            parentFragmentManager.beginTransaction().replace(R.id.teacherr_frag_container, GroupsFragment()).commit()
+        }
         return binding.root
     }
 

@@ -14,11 +14,8 @@ class GroupsAdapter(val context: Context, private val appDataBase: AppDataBase, 
     private val groups = mutableListOf<Group>()
 
     init {
-        val groupIds = mutableListOf<Int>()
-        for (i in appDataBase.getTeacherGroupSubjectDao().getTeacherGroupSubjects(teacherId)){
-            groupIds.add(i.groupId)
-        }
-        for (i in appDataBase.getGroupDao().getGroup()){
+        val groupIds = appDataBase.getTeacherGroupSubjectDao().getTeacherGroups(teacherId)
+        for (i in appDataBase.getGroupDao().getGroups()){
             if (groupIds.contains(i.id)){
                 groups.add(i)
             }
@@ -26,7 +23,7 @@ class GroupsAdapter(val context: Context, private val appDataBase: AppDataBase, 
     }
 
     inner class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val namE = itemView.findViewById<MaterialButton>(R.id.group)
+        val namE: MaterialButton = itemView.findViewById(R.id.group)
     }
 
     override fun onCreateViewHolder(

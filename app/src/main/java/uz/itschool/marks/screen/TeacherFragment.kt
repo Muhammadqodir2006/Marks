@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import uz.itschool.marks.R
 import uz.itschool.marks.database.AppDataBase
 import uz.itschool.marks.databinding.FragmentTeacherBinding
 import uz.itschool.marks.screen.teacher.GroupsFragment
+import uz.itschool.marks.util.ShPHelper
 
 private const val ARG_PARAM1 = "param1"
 class TeacherFragment : Fragment() {
@@ -31,10 +33,17 @@ class TeacherFragment : Fragment() {
         val appDataBase = AppDataBase.getInstance(requireContext())
         val binding = FragmentTeacherBinding.inflate(inflater, container, false)
         val teacher = appDataBase.getTeacherDao().getTeacher(param1!!)
+        val shPHelper = ShPHelper.getInstance(requireContext())
 
         binding.teacherName.text = "${teacher.firstName} ${teacher.lastName}"
 
-        childFragmentManager.beginTransaction().add(R.id.teacherr_nav_host, GroupsFragment()).commit()
+        childFragmentManager.beginTransaction().add(R.id.teacherr_frag_container, GroupsFragment()).commit()
+
+        binding.teacherLogout.setOnClickListener {
+            shPHelper.setUser("","")
+            findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
+        }
+        binding.teacherSubject.text = appDataBase.getSubjectDao().getSubject(teacher.subjectId).name
 
         return binding.root
     }

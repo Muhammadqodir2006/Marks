@@ -13,6 +13,8 @@ interface TeacherGroupSubjectDao {
 
     @Query("select * from teacher_group_subject where teacher_id = :teacherId")
     fun getTeacherGroupSubjects(teacherId:Int):List<TeacherGroupSubject>
+    @Query("select group_id from teacher_group_subject where teacher_id = :teacherId")
+    fun getTeacherGroups(teacherId:Int):List<Int>
 
     @Insert
     fun addTeacherGroupSubject(teacherGroupSubject: TeacherGroupSubject)

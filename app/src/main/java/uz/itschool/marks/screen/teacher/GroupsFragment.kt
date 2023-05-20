@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.replace
 import androidx.recyclerview.widget.LinearLayoutManager
 import uz.itschool.marks.R
 import uz.itschool.marks.adapter.GroupsAdapter
@@ -27,9 +27,8 @@ class GroupsFragment : Fragment() {
         binding.groupsRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.groupsRecycler.adapter = GroupsAdapter(requireContext(), appDataBase, teacherId, object : GroupsAdapter.GoMArks{
             override fun pressed(group: Group) {
-                childFragmentManager.beginTransaction().replace(R.id.teacherr_nav_host, MarksFragment.newInstance(teacherId, group.id)).addToBackStack("").commit()
+                parentFragmentManager.beginTransaction().replace(R.id.teacherr_frag_container, MarksFragment.newInstance(teacherId, group.id), "1").addToBackStack("").commit()
             }
-
         })
 
         return binding.root

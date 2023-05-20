@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp">
+
+        <RadioButton
+            android:id="@+id/mark5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/_5"
+            android:textSize="52sp" />
+
+        <RadioButton
+            android:id="@+id/mark4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_4"
+            android:textSize="52sp" />
+
+        <RadioButton
+            android:id="@+id/mark3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_3"
+            android:textSize="52sp" />
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mark_ok"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        app:backgroundTint="@color/primary"
+        android:layout_height="wrap_content"
+        android:text="@string/baho_qo_yish"
+        app:cornerRadius="12dp"
+        android:textSize="24sp"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mark_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="@string/bekor_qilish"
+        app:backgroundTint="@color/red"
+        app:cornerRadius="12dp"
+        android:textSize="24sp"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/mark_ok" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

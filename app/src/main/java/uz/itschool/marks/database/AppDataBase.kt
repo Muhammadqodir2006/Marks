@@ -91,10 +91,6 @@ abstract class AppDataBase : RoomDatabase() {
             instance!!.getMarkDao().addMark(Mark(mark = 3, teacherGroupSubject = 3, studentId = 5))
             instance!!.getMarkDao().addMark(Mark(mark = 5, teacherGroupSubject = 3, studentId = 5))
             instance!!.getMarkDao().addMark(Mark(mark = 5, teacherGroupSubject = 3, studentId = 5))
-
-
-
-
         }
     }
 }
