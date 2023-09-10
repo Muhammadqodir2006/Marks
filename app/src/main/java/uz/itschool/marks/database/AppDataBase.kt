@@ -44,9 +44,12 @@ abstract class AppDataBase : RoomDatabase() {
 
             instance!!.getTeacherGroupSubjectDao().addTeacherGroupSubject(TeacherGroupSubject(teacherId = 1, groupId = 1, subjectId = 1))
             instance!!.getTeacherGroupSubjectDao().addTeacherGroupSubject(TeacherGroupSubject(teacherId = 1, groupId = 2, subjectId = 1))
+            instance!!.getTeacherGroupSubjectDao().addTeacherGroupSubject(TeacherGroupSubject(teacherId = 1, groupId = 3, subjectId = 1))
+            instance!!.getTeacherGroupSubjectDao().addTeacherGroupSubject(TeacherGroupSubject(teacherId = 2, groupId = 1, subjectId = 2))
             instance!!.getTeacherGroupSubjectDao().addTeacherGroupSubject(TeacherGroupSubject(teacherId = 2, groupId = 2, subjectId = 2))
             instance!!.getTeacherGroupSubjectDao().addTeacherGroupSubject(TeacherGroupSubject(teacherId = 2, groupId = 3, subjectId = 2))
             instance!!.getTeacherGroupSubjectDao().addTeacherGroupSubject(TeacherGroupSubject(teacherId = 3, groupId = 1, subjectId = 3))
+            instance!!.getTeacherGroupSubjectDao().addTeacherGroupSubject(TeacherGroupSubject(teacherId = 3, groupId = 2, subjectId = 3))
             instance!!.getTeacherGroupSubjectDao().addTeacherGroupSubject(TeacherGroupSubject(teacherId = 3, groupId = 3, subjectId = 3))
 
             instance!!.getStudentDao().addStudent(Student(login = "s1", password = "1234", firstName = "Student1", lastName = "Aliyev", group_id = 1))

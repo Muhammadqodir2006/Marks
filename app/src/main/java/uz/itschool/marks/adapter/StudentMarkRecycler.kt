@@ -13,6 +13,7 @@ import uz.itschool.marks.database.entity.Mark
 
 class StudentMarkRecycler(val appDataBase: AppDataBase, val contexT: Context, val studentId: Int) :
     RecyclerView.Adapter<StudentMarkRecycler.MyHolder>() {
+    val student = appDataBase.getStudentDao().getStudent(studentId)
     inner class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val fan: TextView = itemView.findViewById(R.id.fan)
         val studentMarksGrid: GridLayout =
@@ -23,16 +24,15 @@ class StudentMarkRecycler(val appDataBase: AppDataBase, val contexT: Context, va
     val allMarks = appDataBase.getMarkDao().getMarks(studentId)
 
     init {
-        for (i in allMarks) {
             for (j in appDataBase.getTeacherGroupSubjectDao().getTeacherGroupSubjects()) {
-                if (i.teacherGroupSubject == j.id) {
+                if (j.groupId == student.group_id) {
                     if (!subjectIds.contains(j.subjectId)) {
                         subjectIds.add(j.subjectId)
                     }
                     break
                 }
             }
-        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
